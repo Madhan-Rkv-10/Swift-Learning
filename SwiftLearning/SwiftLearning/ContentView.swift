@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     let students = ["Harry", "Hermhhhhhhhhhhhione", "Ron"]
     @State private var selectedStudent = "Harry"
+    @State private var showingAlert = false
 
     var body: some View {
 //        NavigationStack {
@@ -54,56 +55,81 @@ struct ContentView: View {
 //            .frame(maxWidth: .infinity, maxHeight: .infinity)
 //            .foregroundStyle(.white)
 //            .background(.red.gradient)
+  // -----------
+        
+//        Button("Delete selection", action: executeDelete)
+//        VStack {
+//            Button("Button 1") { }
+//                .buttonStyle(.bordered)
+//            Button("Button 2", role: .destructive) { }
+//                .buttonStyle(.bordered)
+//            Button("Button 3") { }
+//                .buttonStyle(.borderedProminent)
+//            Button("Button 4", role: .destructive) { }
+//                .buttonStyle(.borderedProminent)
+//        }
+//        
+//        Button {
+//            print("Button was tapped")
+//        } label: {
+//            Text("Tap me!")
+//                .padding()
+//                .foregroundStyle(.white)
+//                .background(.red)
+//        }
+//        
+//        Button {
+//            print("Edit button was tapped")
+//        } label: {
+//            Image(systemName: "pencil")
+//        }
+//        
+//        
+//        Button("Edit", systemImage: "pencil") {
+//            print("Edit button was tapped")
+//        }
+//        
+//        /**
+//         Image("pencil") will load an image called “Pencil” that you have added to your project.
+//         Image(decorative: "pencil") will load the same image, but won’t read it out for users who have enabled the screen reader. This is useful for images that don’t convey additional important information.
+//         */
+//        Button {
+//            print("Edit button was tapped")
+//        } label: {
+//            Label("Edit", systemImage: "pencil")
+//                .padding()
+//                .foregroundStyle(.white)
+//                .background(.red)
+//        }
+        //-------
         
         
-        Button("Delete selection", action: executeDelete)
-        VStack {
-            Button("Button 1") { }
-                .buttonStyle(.bordered)
-            Button("Button 2", role: .destructive) { }
-                .buttonStyle(.bordered)
-            Button("Button 3") { }
-                .buttonStyle(.borderedProminent)
-            Button("Button 4", role: .destructive) { }
-                .buttonStyle(.borderedProminent)
+        
+//        
+//        Button("Show Alert") {
+//                   showingAlert = true
+//               }
+//        .alert("Important message", isPresented: $showingAlert) {
+//                   Button("OK") { }
+//        }.frame(width:200, height: 300)
+//   //-------
+        Button("Show Alert") {
+            showingAlert = true
         }
-        
-        Button {
-            print("Button was tapped")
-        } label: {
-            Text("Tap me!")
-                .padding()
-                .foregroundStyle(.white)
-                .background(.red)
+        .alert("Important message", isPresented: $showingAlert) {
+            Button("Delete", role: .destructive) { }
+               Button("Cancel", role: .cancel) { }
+        } message: {
+            Text("Please read this.")
         }
-        
-        Button {
-            print("Edit button was tapped")
-        } label: {
-            Image(systemName: "pencil")
-        }
-        
-        
-        Button("Edit", systemImage: "pencil") {
-            print("Edit button was tapped")
-        }
-        /**
-         Image("pencil") will load an image called “Pencil” that you have added to your project.
-         Image(decorative: "pencil") will load the same image, but won’t read it out for users who have enabled the screen reader. This is useful for images that don’t convey additional important information.
-         */
-        Button {
-            print("Edit button was tapped")
-        } label: {
-            Label("Edit", systemImage: "pencil")
-                .padding()
-                .foregroundStyle(.white)
-                .background(.red)
-        }
+//-------
          
     }
     func executeDelete() {
         print("Now deleting…")
     }
+    
+    
 }
 
 #Preview {
